@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="lang_user.xslt"?>
+<XMLConfigSettings>
+	<FILEINFO>
+		<Author>Alex Arseniev</Author>
+		<Type>LangUser</Type>
+		<Language>ABAP</Language>
+		<Desc>User specific settings for ABAP</Desc>
+	</FILEINFO>
+	<EXPANDS>
+		<!-- SAP Templates -->
+		<Expand key="priv">
+			<Descr>Declaration of Private section</Descr>
+			<Text>PRIVATE SECTION.\n</Text>
+		</Expand>
+		<Expand key="*statmeth">
+			<Descr>Declaration static methods</Descr>
+			<Text>*   s t a t i c   m e t h o d s\n    CLASS-METHODS:\n      |</Text>
+		</Expand>
+		<Expand key="*instevt">
+			<Descr>Instance event declaration</Descr>
+			<Text>*   i n s t a n c e   e v e n t s\n    EVENTS:\n      |</Text>
+		</Expand>
+		<Expand key="ife">
+			<Descr>If (§) Else</Descr>
+			<Text>IF |.\n%SurroundedText%\nELSE.\n\nENDIF.</Text>
+		</Expand>
+		<Expand key="loop">
+			<Descr>Loop (§)</Descr>
+			<Text>LOOP AT |.\n%SurroundedText%\nENDLOOP.</Text>
+		</Expand>
+		<Expand key="*meth">
+			<Descr>Method implementation</Descr>
+			<Text>"%description%\n      %method_name%\n        IMPORTING\n          iv_...               TYPE x..                x..\n        EXPORTING\n          ev_...               TYPE x..\n        CHANGING \n          cv_...               TYPE x..\n        RETURNING\n          value(rv_..   )      TYPE x..\n        RAISING\n          x..\n\n\n  METHOD %method_name%.\n    "-----------------------------------------------------------------*\n    "   %description%\n    "-----------------------------------------------------------------*\n    "&lt;&lt;&lt;  use this block only in local classes  &gt;&gt;&gt;\n    "     --&gt;  IV_...  Description\n    "     &lt;--  EV_...  Description\n    "     &lt;-&gt;  CV_...  Description\n    "     &lt;-|  RV_...  Description\n    "-----------------------------------------------------------------*\n    "&lt;&lt;&lt;  use this block only in local classes  &gt;&gt;&gt;\n    " Change Log\n    "\n    " Date       Author          Description\n    " ---------- --------------- -------------------------------------*\n    " YYYY-MM-DD x               Reference and Description\n    "******************************************************************\n    "Local data definitions\n*    DATA:\n*      lv_...                TYPE x..\n\n    \n  ENDMETHOD.                    "%method_name%\n</Text>
+		</Expand>
+		<Expand key="*init">
+			<Descr>Report event INITIALIZATION</Descr>
+			<Text>*---------------------------------------------------------------------*\n*     i n i t i a l i z a t i o n\n*---------------------------------------------------------------------*\nINITIALIZATION.\n  %class_name%=&gt;initialization( ).\n\n*     Initialization of report data / selections\n      initialization,\n\n  METHOD initialization.\n    "-----------------------------------------------------------------*\n    "   Initialization of report data / selections\n    "-----------------------------------------------------------------*\n    " Change Log\n    "\n    " Date       Author          Description\n    " ---------- --------------- -------------------------------------*\n    " YYYY-MM-DD x               Reference and Description\n    "******************************************************************\n    ...\n  ENDMETHOD.                    "initialization\n</Text>
+		</Expand>
+		<Expand key="*methhdr">
+			<Descr>Documentation header for methods, function modules and subroutines</Descr>
+			<Text>"-----------------------------------------------------------------*\n    "   %description%\n    "-----------------------------------------------------------------*\n    " Change Log\n    "\n    " Date       Author          Description\n    " ---------- --------------- -------------------------------------*\n    " YYYY-MM-DD x               Reference and Description\n    "******************************************************************\n</Text>
+		</Expand>
+		<Expand key="*asov">
+			<Descr>At selection-screen on value-request</Descr>
+			<Text>*---------------------------------------------------------------------*\n*     a t   s e l e c t i o n - s c r e e n   o n   VALUE-REQUEST  \n*---------------------------------------------------------------------*\nat selection-screen on value-request for %selection_param_name%.\n  " Value request help for |....\n  %class_name%=&gt;at_sel_screen_on_vr_%selection_param_name%.\n\n\n*     Execute value help\n      at_sel_screen_on_vr_%selection_param_name%,\n\n  METHOD at_sel_screen_on_vr_%selection_param_name%.\n    "-----------------------------------------------------------------*\n    "   Execute value help\n    "-----------------------------------------------------------------*\n    " Change Log\n    "\n    " Date       Author          Description\n    " ---------- --------------- -------------------------------------*\n    " YYYY-MM-DD x               Reference and Description\n    "******************************************************************\n    ...\n  ENDMETHOD.                    "at_sel_screen_on_vr_%selection_param_name%\n\n</Text>
+		</Expand>
+		<Expand key="*statdata">
+			<Descr>Declaration static data</Descr>
+			<Text>*   s t a t i c   a t t r i b u t e s\n    CLASS-DATA:\n      |</Text>
+		</Expand>
+		<Expand key="*selflds">
+			<Descr>Select-Options and parameters</Descr>
+			<Text>* s e l e c t i o n   f i e l d s\n*- ... ---------------------------------------------------------------*\n*- Data selection ----------------------------------------------------*\nselection-screen begin of block %block_id% with frame \n                                    title text-%block_id%.\nparameters:\n* Description\n  p_...          x..                 option,\n* Description\n  p_cb...        as   checkbox       option,\n* Description\n  p_rb...        radiobutton         option,\n\nselect-options:\n* Description\n  so_...         for  x..            option,\n\n*SELECTION-SCREEN  BEGIN OF LINE.\n*PARAMETERS\n** Description\n*  p_cb_x..       AS   CHECKBOX       DEFAULT 'X'.\n*SELECTION-SCREEN: COMMENT 03(30) FOR FIELD p_cb_x..,\n*                  POSITION 35.\n*PARAMETERS\n** Description\n*  p_cb_x..       AS   CHECKBOX.\n*SELECTION-SCREEN: COMMENT 38(30) FOR FIELD p_cb_x..,\n*                  POSITION 70.\n*  parameters\n**   Description\n*    p_...          ...                 [optioin]\n*  selection-screen  comment 73(30) for field p_...\n*SELECTION-SCREEN  END   OF LINE.\nselection-screen end   of block %block_id%.\n\n</Text>
+		</Expand>
+		<Expand key="if">
+			<Descr>If (§)</Descr>
+			<Text>IF |.\n%SurroundedText%\nENDIF.</Text>
+		</Expand>
+		<!-- Custom Templates -->
+		<Expand key="*--">
+			<Descr>*-------...</Descr>
+			<Text>*--------------------------------------------------------------------*</Text>
+		</Expand>
+		<Expand key="*const">
+			<Descr>Definition constants</Descr>
+			<Text>*   c o n s t a n t s\n    CONSTANTS:\n      mc_|..               TYPE x..               VALUE 'xxx'  ##no_text,\n</Text>
+		</Expand>
+		<Expand key="***">
+			<Descr>***.....</Descr>
+			<Text>**********************************************************************</Text>
+		</Expand>
+		<Expand key="*unittest">
+			<Descr>Class frame for ABAP Unit testing</Descr>
+			<Text>*---------------------------------------------------------------------*\n*     CLASS  zlcl_aunit_%name_test_class%  DEFINITION\n*---------------------------------------------------------------------*\n*     Description\n*---------------------------------------------------------------------*\nCLASS zlcl_aunit_%name_test_class% DEFINITION\n                         INHERITING FROM cl_aunit_assert  "#AU Duration Short\n                         FOR TESTING.                "#AU Risk_Level Harmless\n*                        FOR TESTING [RISK LEVEL {CRITICAL|DANGEROUS|HARMLESS}]\n*                                    [DURATION   {SHORT|MEDIUM|LONG}]\n* The addtions RISK_LEVEL and DURATION are not available in older releases.\n* They have to be replaced by the pseudo commands starting with "#AU.\n*\n* Possible values for Risk_Level are:\n* - Critical  - The test could change system settings or the Customizing, for example.\n* - Dangerous - The test could change persistent application data, for example.\n* - Harmless  - The test has no effect on persistent data or system settings.\n*\n* Possible values for Duration are:´\n* The execution duration is expected to be ...\n* - Short   - ... less than one minute. This is the default value.\n* - Medium  - ... between one minute and ten minutes.\n* - Long    - ... between ten minutes and 60 minutes.\n\n*?&lt;asx:abap
+				xmlns:asx="http://www.sap.com/abapxml" version="1.0"&gt;\n*?&lt;asx:values&gt;\n*?&lt;TESTCLASS_OPTIONS&gt;\n*?&lt;TEST_CLASS&gt;zlcl_aunit_%name_test_class%\n*?&lt;/TEST_CLASS&gt;\n*?&lt;TEST_MEMBER&gt;gr_%test_instance%\n*?&lt;/TEST_MEMBER&gt;\n*?&lt;OBJECT_UNDER_TEST&gt;%name_global_class_to_be_tested%\n*?&lt;/OBJECT_UNDER_TEST&gt;\n*?&lt;OBJECT_IS_LOCAL/&gt;\n*?&lt;GENERATE_FIXTURE&gt;X\n*?&lt;/GENERATE_FIXTURE&gt;\n*?&lt;GENERATE_CLASS_FIXTURE&gt;X\n*?&lt;/GENERATE_CLASS_FIXTURE&gt;\n*?&lt;GENERATE_INVOCATION&gt;X\n*?&lt;/GENERATE_INVOCATION&gt;\n*?&lt;GENERATE_ASSERT_EQUAL&gt;X\n*?&lt;/GENERATE_ASSERT_EQUAL&gt;\n*?&lt;/TESTCLASS_OPTIONS&gt;\n*?&lt;/asx:values&gt;\n*?&lt;/asx:abap&gt;\n\n* P U B L I C   S E C T I O N\n  PUBLIC SECTION.\n*   i n t e r f a c e s\n    INTERFACES:\n      if_aunit_constants,\n      zif_bc_const_boolean.\n\n* P R I V A T E   S E C T I O N\n  PRIVATE SECTION.\n*   a l i a s e s\n    ALIASES:\n*     Warning Levels\n      c_warn_fatal         FOR  if_aunit_constants~fatal,\n      c_warn_critical	     FOR  if_aunit_constants~critical,\n      c_warn_tolerable     FOR  if_aunit_constants~tolerable,\n*     Termination types\n      c_term_program       FOR  if_aunit_constants~program,\n      c_term_class         FOR  if_aunit_constants~class,\n      c_term_method	       FOR  if_aunit_constants~method,\n      c_term_no	           FOR  if_aunit_constants~no,\n*     Boolean flags\n      c_false              FOR  zif_bc_const_boolean~c_false,\n      c_true               FOR  zif_bc_const_boolean~c_true.\n\n**   s t a t i c   a t t r i b u t e s\n*    CLASS-DATA:\n**     o b j e c t   r e f e r e n c e s\n**     description\n*      gr_...               TYPE REF TO ...\n*\n**     t a b l e s\n**     description\n*      gt_...               TYPE ... \n*\n**     s t r u c t u r e s\n**     description\n*      gs_...               TYPE ...\n*\n**     s i n g l e   v a l u e s\n**     description\n*      gv_...               TYPE ...\n*\n*   i n s t a n c e   a t t r i b u t e s\n    DATA:\n*     o b j e c t   r e f e r e n c e s\n*     Class under test\n      gr_%test_instance%   TYPE REF TO %name_global_class_to_be_tested%.\n\n**     t a b l e s\n**     description\n*      gt_...               TYPE ... \n*\n**     s t r u c t u r e s\n**     description\n*      gs_...               TYPE ...\n*\n**     s i n g l e   v a l u e s\n**     description\n*      gv_...               TYPE ...\n*\n\n*   s t a t i c   m e t h o d s\n    CLASS-METHODS:\n*     Check and preparation of test data\n      class_setup,\n\n*     Deletion of test data and settings\n      class_teardown.\n\n*   i n s t a n c e   m e t h o d s\n    METHODS:\n*     Prepare data for each testing method\n      setup,\n\n*     !!! Test methods are processed in alphabetical order !!!\n\n*     123456789012345678901234567890\n*     Test ...\n      test_0010_... FOR TESTING,\n\n*     Release and my be delete single test data\n      teardown.\nENDCLASS.                    " zlcl_aunit_%name_test_class%  DEFINITION\n\n*---------------------------------------------------------------------*\n*     CLASS  zlcl_aunit_%name_test_class%  IMPLEMENTATION\n*---------------------------------------------------------------------*\nCLASS zlcl_aunit_%name_test_class% IMPLEMENTATION.\n*---------------------------------------------------------------------*\n*     METHOD  class_setup  [STATIC]\n*---------------------------------------------------------------------*\n*     Description\n*---------------------------------------------------------------------*\n  METHOD class_setup.\n\n  ENDMETHOD.                    " class_setup\n\n*---------------------------------------------------------------------*\n*     METHOD  setup  [INSTANCE]\n*---------------------------------------------------------------------*\n*     Prepare test method data\n*---------------------------------------------------------------------*\n  METHOD setup.\n*    CREATE OBJECT gr_%test_instance%.\n  ENDMETHOD.                    " setup\n\n*---------------------------------------------------------------------*\n*     METHOD  test_0010_...  [INSTANCE]\n*---------------------------------------------------------------------*\n*     Test ...\n*---------------------------------------------------------------------*\n  METHOD test_0010_...\n\n  ENDMETHOD.                    " test_0010_...\n\n*---------------------------------------------------------------------*\n*     METHOD  teardown  [INSTANCE]\n*---------------------------------------------------------------------*\n*     Release test data and may be delete single data\n*---------------------------------------------------------------------*\n  METHOD teardown.\n\n  ENDMETHOD.                    " teardown\n\n*---------------------------------------------------------------------*\n*     METHOD  class_teardown  [STATIC]\n*---------------------------------------------------------------------*\n*     Delete / reset test data\n*---------------------------------------------------------------------*\n  METHOD class_teardown.\n\n  ENDMETHOD.                    " class_teardown\nENDCLASS.                    " zlcl_aunit_%name_test_class%  IMPLEMENTATION\n</Text>
+		</Expand>
+		<Expand key="*atsel">
+			<Descr>Report event AT SELECTION-SCREEN</Descr>
+			<Text>  AT SELECTION-SCREEN</Text>
+		</Expand>
+		<Expand key="try">
+			<Descr>Try (§)</Descr>
+			<Text>TRY |.\n%SurroundedText%\nCATCH .\n\nENDTRY.</Text>
+		</Expand>
+		<Expand key="prot">
+			<Descr>Declaration protected section</Descr>
+			<Text>PROTECTED SECTION.\n\n</Text>
+		</Expand>
+		<Expand key="define">
+			<Descr>Define (§)</Descr>
+			<Text>DEFINE |.\n%SurroundedText%\nEND-OF-DEFINITION.</Text>
+		</Expand>
+		<Expand key="*statevt">
+			<Descr>Static event declaration</Descr>
+			<Text>" S t a t i c   e v e n t s\n    CLASS-EVENTS:\n      |</Text>
+		</Expand>
+		<Expand key="*types">
+			<Descr>Definition of local types</Descr>
+			<Text>" Local type definition\n    TYPES:\n*     description\n      BEGIN OF ltys_|...,\n        ...                TYPE x..\n      END   OF ltys_...,\n      ltyt_..              TYPE STANDARD TABLE OF lty_s_...\n</Text>
+		</Expand>
+		<Expand key="*start">
+			<Descr>Start-of-selection</Descr>
+			<Text>*---------------------------------------------------------------------*\n*     s t a r t - o f - s e l e c t i o n\n*---------------------------------------------------------------------*\nSTART-OF-SELECTION.\n  %class_name%=&gt;main( ).\n</Text>
+		</Expand>
+		<Expand key="*attr">
+			<Descr>Definition of global attributes</Descr>
+			<Text>*     o b j e c t   r e f e r e n c e s\n**     description\n*      mo_...               TYPE REF TO x..\n*\n**     d a t a   r e f e r e n c e s\n**     description\n*      mr_...               TYPE REF TO data,\n*\n**     t a b l e s\n**     description\n*      mt_...               TYPE x.. \n*\n**     s t r u c t u r e s\n**     description\n*      ms_...               TYPE x..\n*\n**     s i n g l e   v a l u e s\n**     description\n*      mv_...               TYPE x..\n*\n</Text>
+		</Expand>
+		<Expand key="*instmeth">
+			<Descr>Declaration of instance method</Descr>
+			<Text>" I n s t a n c e   m e t h o d s\n    METHODS:\n      |</Text>
+		</Expand>
+		<Expand key="case">
+			<Descr>CASE (§)</Descr>
+			<Text>CASE |.\nWHEN .\nWHEN OTHERS.\nENDCASE.</Text>
+		</Expand>
+		<Expand key="*rephdr">
+			<Descr>Reportbeschreibung</Descr>
+			<Text>************************************************************************\n* Author        : %My name, NOT user%\n* Date created  : %Date in format YYYY-MM-DD%\n* Referemce     : %Project, RfC, Change, OIM, ...%\n*----------------------------------------------------------------------*\n* Description   : %Description%\n*                  \n************************************************************************\n</Text>
+		</Expand>
+		<Expand key="*msg">
+			<Descr>Message with SYST variables</Descr>
+			<Text>MESSAGE ID %structure_name%-MSGID TYPE %structure_name%-MSGTY NUMBER %structure_name%-MSGNO\n         WITH %structure_name%-MSGV1 %structure_name%-MSGV2 %structure_name%-MSGV3 %structure_name%-MSGV4.</Text>
+		</Expand>
+		<Expand key="*creexc">
+			<Descr>Create exception method call</Descr>
+			<Text>DATA(%lx_exception_instance%) =\n      CAST %name_exception_class_in_upper_case%(\n               zcx_ca_error=&gt;create_exception(\n                                        iv_excp_cls   = '%name_exception_class_in_upper_case%'\n                                        iv_function   = 'xxx'\n                                        iv_subroutine = 'xxx'\n                                        iv_class      = 'xxx'\n                                        iv_method     = 'xxx'\n                                        is_msg        = corresponding #( syst )\n                                        is_return     = value #(  )\n                                        it_return     = x\n                                        iv_subrc      = sy-subrc\n                                        ix_error      = lx_error ) )  ##no_text.\nif %lx_exception_instance% IS BOUND.\n  RAISE EXCEPTION %lx_exception_instance%.\nENDIF.</Text>
+		</Expand>
+		<Expand key="while">
+			<Descr>While (§)</Descr>
+			<Text>WHILE |.\n%SurroundedText%\nENDWHILE.</Text>
+		</Expand>
+		<Expand key="*class">
+			<Descr>Frame for LOCAL class definition and implementation</Descr>
+			<Text>*---------------------------------------------------------------------*\n*     CLASS  %class_name%  DEFINITION\n*---------------------------------------------------------------------*\n*     %description%\n*---------------------------------------------------------------------*\nCLASS %class_name% DEFINITION CREATE PUBLIC\n                                     FINAL.\n* P U B L I C   S E C T I O N\n  PUBLIC SECTION.\n*   s t a t i c   m e t h o d s\n    CLASS-METHODS:\n*     Main method, that controls the entire processing\n      main.\n\n\n* P R I V A T E   S E C T I O N\n  PRIVATE SECTION.\n**   s t a t i c   a t t r i b u t e s\n*    CLASS-DATA:\n**     o b j e c t   r e f e r e n c e s\n**     description\n*      mo_...               TYPE REF TO x..\n*\n**     t a b l e s\n**     description\n*      mt_...               TYPE x.. \n*\n**     s t r u c t u r e s\n**     description\n*      ms_...               TYPE x..\n*\n**     s i n g l e   v a l u e s\n**     description\n*      mv_...               TYPE x..\n      \nENDCLASS.                    " %class_name%  DEFINITION\n\n\n*---------------------------------------------------------------------*\n*     CLASS  %class_name%  IMPLEMENTATION\n*---------------------------------------------------------------------*\nCLASS %class_name% IMPLEMENTATION.\n  METHOD main.\n    "-----------------------------------------------------------------*\n    "   Main method, that controls the entire processing\n    "-----------------------------------------------------------------*\n    " Change Log\n    "\n    " Date       Author          Description\n    " ---------- --------------- -------------------------------------*\n    " YYYY-MM-DD x               Reference and Description\n    "******************************************************************\n    "Local data definitions\n*    DATA:\n*      l...                  TYPE x..\n\n    \n  ENDMETHOD.                    "main\nENDCLASS.                    " %class_name%  IMPLEMENTATION\n\n</Text>
+		</Expand>
+		<Expand key="method">
+			<Descr>METHOD  (§)</Descr>
+			<Text>METHOD |.\nENDMETHOD.</Text>
+		</Expand>
+		<Expand key="*data">
+			<Descr>Local data definition</Descr>
+			<Text>  " Local data definitions\n  DATA:\n    lv_|..                TYPE x...\n</Text>
+		</Expand>
+		<Expand key="do">
+			<Descr>Do (§)</Descr>
+			<Text>DO | TIMES.\n%SurroundedText%\nENDDO.</Text>
+		</Expand>
+		<Expand key="*tables">
+			<Descr>DDIC Tables and structures</Descr>
+			<Text>" T a b l e s   /   s t r u c t u r e s   for selection field definition\nTABLES:\n  |..                  " description\n\n</Text>
+		</Expand>
+		<Expand key="*instdata">
+			<Descr>Declaration instance data</Descr>
+			<Text>*   i n s t a n c e   a t t r i b u t e s\n    DATA:\n</Text>
+		</Expand>
+		<Expand key="region">
+			<Descr>Region (§)</Descr>
+			<Text>"$. Region %Region Name%\n%SurroundedText%\n"$. Endregion %Region Name%</Text>
+		</Expand>
+		<Expand key="*interf">
+			<Descr>Definition interfaces</Descr>
+			<Text>*   i n t e r f a c e s\n    INTERFACES:\n      |\n</Text>
+		</Expand>
+	</EXPANDS>
+</XMLConfigSettings>
