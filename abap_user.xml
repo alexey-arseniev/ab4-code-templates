@@ -8,7 +8,6 @@
 		<Desc>User specific settings for ABAP</Desc>
 	</FILEINFO>
 	<EXPANDS>
-		<!-- SAP Templates -->
 		<Expand key="priv">
 			<Descr>Declaration of Private section</Descr>
 			<Text>PRIVATE SECTION.\n</Text>
@@ -57,7 +56,6 @@
 			<Descr>If (§)</Descr>
 			<Text>IF |.\n%SurroundedText%\nENDIF.</Text>
 		</Expand>
-		<!-- Custom Templates -->
 		<Expand key="*--">
 			<Descr>*-------...</Descr>
 			<Text>*--------------------------------------------------------------------*</Text>
@@ -122,10 +120,6 @@
 		<Expand key="*msg">
 			<Descr>Message with SYST variables</Descr>
 			<Text>MESSAGE ID %structure_name%-MSGID TYPE %structure_name%-MSGTY NUMBER %structure_name%-MSGNO\n         WITH %structure_name%-MSGV1 %structure_name%-MSGV2 %structure_name%-MSGV3 %structure_name%-MSGV4.</Text>
-		</Expand>
-		<Expand key="*creexc">
-			<Descr>Create exception method call</Descr>
-			<Text>DATA(%lx_exception_instance%) =\n      CAST %name_exception_class_in_upper_case%(\n               zcx_ca_error=&gt;create_exception(\n                                        iv_excp_cls   = '%name_exception_class_in_upper_case%'\n                                        iv_function   = 'xxx'\n                                        iv_subroutine = 'xxx'\n                                        iv_class      = 'xxx'\n                                        iv_method     = 'xxx'\n                                        is_msg        = corresponding #( syst )\n                                        is_return     = value #(  )\n                                        it_return     = x\n                                        iv_subrc      = sy-subrc\n                                        ix_error      = lx_error ) )  ##no_text.\nif %lx_exception_instance% IS BOUND.\n  RAISE EXCEPTION %lx_exception_instance%.\nENDIF.</Text>
 		</Expand>
 		<Expand key="while">
 			<Descr>While (§)</Descr>
