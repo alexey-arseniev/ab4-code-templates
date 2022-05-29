@@ -1,7 +1,7 @@
 # ab4-code-templates
 Here you can find an aternative code templates set for ABAP Editor used in ABAB Workbench (SE38).
 To install temmplates to your PC, replace file:
-- %APPDATA%\SAP\ABAP Editor\abap_user.xml on your PC by file
+- %APPDATA%\SAP\SAP GUI\ABAP Editor\abap_user.xml on your PC by file
 - [abap_user.xml]((../blob/master/abap_zser.xml)) from repository.
 
 **!Important!**
